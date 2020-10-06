@@ -13,6 +13,7 @@ import subprocess
 from shutil import copyfile,rmtree
 import pandas as pd
 import os.path
+from bs4 import BeautifulSoup
 
 ######################################################
 #run models and get the results in parallel
@@ -152,7 +153,7 @@ def runModel(climate,eplus_path,weather_file,eplus_file,param_value,output_file,
         with open('./results/energy_data_err.csv', 'ab') as csvfile:
             energy_data_err = csv.writer(csvfile, delimiter=',')
             energy_data_err.writerow(climate+eplus_file)
-            
+    time.sleep(1)        
     rmtree('./results/'+climate+output_file+eplus_file.split('.')[0])
     #rmtree('./Model/update_models/'+climate+eplus_file)
     output.put([])
