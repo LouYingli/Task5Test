@@ -208,9 +208,8 @@ def parallelSimu(climate,round_num):
     processes = [mp.Process(target=runModel,args=(climate,eplus_path,weather_file,eplus_files[i],param_value[i],output_file,output)) for i in range(len(eplus_files))]
     
     #count the number of cpu
-    # cpu = mp.cpu_count()#record the results including inputs and outputs
+    cpu = mp.cpu_count()#record the results including inputs and outputs
     # print cpu
-    cpu = 4
     print(cpu)
     model_results = []
     
